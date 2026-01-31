@@ -32,7 +32,7 @@ export default function CustomizationSection() {
 
             {/* CTA Button */}
             <div className="pt-4">
-              <button className="bg-lime-500 text-lg sm:text-lg text-[#030712] hover:bg-lime-600 font-semibold py-5 px-16 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 font-(family-name:--font-plus-jakarta-sans)">
+              <button className="bg-lime-500 text-lg cursor-pointer sm:text-lg text-[#030712] hover:bg-lime-600 font-semibold py-5 px-16 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 font-(family-name:--font-plus-jakarta-sans)">
                 Start Customizing
               </button>
             </div>

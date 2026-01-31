@@ -12,12 +12,12 @@ export default function Home() {
             {/* Left Column - Content */}
             <div className="space-y-2 sm:space-y-2">
               {/* Heading */}
-              <h1 className="text-4xl text-center sm:text-left sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#030712] font-(family-name:--font-plus-jakarta-sans) leading-tight">
+              <h1 className="text-4xl text-center sm:text-left sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#074ed3] font-(family-name:--font-plus-jakarta-sans) leading-tight">
                 One Link. Endless Possibilities.
               </h1>
 
               {/* Description */}
-              <p className="text-lg text-center sm:text-left px-3 sm:px-0 sm:text-lg text-[#030712]/80 leading-relaxed">
+              <p className="text-lg text-center sm:text-left px-3 sm:px-0 sm:text-lg text-[#074ed3]/80 leading-relaxed">
                 Connect your audience to everything you do — your content,
                 products, social media, and more. All in one beautiful,
                 customizable page.
@@ -30,7 +30,7 @@ export default function Home() {
                   placeholder="yourname"
                   className="w-full sm:flex-1 px-4 py-3 rounded-full border border-[#030712]/30 bg-[#F5F7F2] text-[#030712] placeholder:text-[#030712]/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                 />
-                <button className="bg-[#030712] hover:bg-[#030712]/90 cursor-pointer text-[#F5F7F2] font-semibold py-3 sm:px-6 rounded-full transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap font-(family-name:--font-plus-jakarta-sans)">
+                <button className="bg-[#074ed3] hover:bg-[#030712]/90 cursor-pointer text-[#F5F7F2] font-semibold py-3 sm:px-6 rounded-full transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap font-(family-name:--font-plus-jakarta-sans)">
                   Get Started Free
                 </button>
               </div>
