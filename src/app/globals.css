@@ -19,13 +19,15 @@
   --color-ring: var(--ring);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-bg: var(--bg);
+  --color-btn-background: var(--btn-background);
 }
 
 :root {
   --radius: 0.75rem;
   
   /* Light theme: White bg, Gray-950 text, Teal accent */
-  --background: #ffffff;
+  --background: #F5F7F2;
   --foreground: #030712;
   --card: #ffffff;
   --card-foreground: #030712;
@@ -36,11 +38,13 @@
   --ring: #14B8A6;
   --muted: #f3f4f6;
   --muted-foreground: #6b7280;
+  --bg: #14B8A6;
+  --btn-background: #030712;
 }
 
 .dark {
   /* Dark theme: Gray-950 bg, Off-white text, Teal accent */
-  --background: #030712;
+  --background: #F5F7F2;
   --foreground: #f9fafb;
   --card: #1f2937;
   --card-foreground: #f9fafb;
@@ -51,6 +55,8 @@
   --ring: #14B8A6;
   --muted: #374151;
   --muted-foreground: #9ca3af;
+  --bg: #030712;
+  --btn-background: #14B8A6;
 }
 
 @layer base {

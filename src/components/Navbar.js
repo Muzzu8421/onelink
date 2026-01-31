@@ -3,80 +3,105 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Navbar() {
   const { setTheme, theme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
-      <div className="bg-background backdrop-blur-lg border border-border rounded-full shadow-lg px-6 py-4">
+      <div className="bg-background backdrop-blur-lg border border-border rounded-full shadow-lg px-4 sm:px-6 py-3 sm:py-4 relative">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            {/* Show favicon on mobile, full logo on desktop */}
+            <Image 
+              src="/favicon.ico" 
+              alt="OneLink Logo" 
+              width={32} 
+              height={32}
+              className="h-8 w-8 sm:hidden"
+              priority
+            />
             <Image 
               src="/logo.svg" 
               alt="OneLink Logo" 
               width={120} 
               height={32}
-              className="h-8 w-auto"
+              className="h-8 w-auto hidden sm:block"
               priority
             />
           </Link>
 
-          {/* Navigation Links & Actions */}
-          <div className="flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
             <Link 
               href="/" 
-              className="text-foreground hover:text-primary transition-colors font-medium font-[family-name:var(--font-plus-jakarta-sans)]"
+              className="text-gray-950 hover:text-gray-950/80 transition-colors font-medium font-(family-name:--font-plus-jakarta-sans)"
             >
               Home
             </Link>
             <Link 
               href="/about" 
-              className="text-foreground hover:text-primary transition-colors font-medium font-[family-name:var(--font-plus-jakarta-sans)]"
+              className="text-gray-950 hover:text-gray-950/80 transition-colors font-medium font-(family-name:--font-plus-jakarta-sans)"
             >
               About
             </Link>
-
-            {/* Theme Toggle Button */}
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-lg hover:bg-muted transition-colors relative inline-flex items-center justify-center"
-              aria-label="Toggle theme"
-            >
-              <svg 
-                className="h-5 w-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" 
-                fill="none" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth="2" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-              
-              <svg 
-                className="absolute h-5 w-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0 text-primary" 
-                fill="none" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth="2" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              </svg>
-            </button>
             
             {/* Get Started Button */}
             <Link href="/get-started">
-              <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 font-[family-name:var(--font-plus-jakarta-sans)]">
+              <button className="bg-[#030712] hover:bg-[#030712]/90 cursor-pointer text-[#F5F7F2] font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 font-(family-name:--font-plus-jakarta-sans)">
                 Get Started
               </button>
             </Link>
           </div>
+
+          {/* Mobile Menu - Right Side Items */}
+          <div className="flex md:hidden items-center gap-2">
+        
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 cursor-pointer rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6 text-gray-950" />
+              ) : (
+                <Menu className="h-6 w-6 text-gray-950" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Dropdown - Positioned absolutely to not affect navbar shape */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 mt-2 bg-background backdrop-blur-lg border border-border rounded-2xl shadow-lg p-4 z-50">
+            <div className="flex flex-col gap-4">
+              <Link 
+                href="/" 
+                className="text-gray-950 hover:text-[#030712]/80 transition-colors font-medium font-(family-name:--font-plus-jakarta-sans) px-2 py-2 rounded-lg hover:bg-muted"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/about" 
+                className="text-gray-950 hover:text-[#030712]/80 transition-colors font-medium font-(family-name:--font-plus-jakarta-sans) px-2 py-2 rounded-lg hover:bg-muted"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link href="/get-started" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                <button className="w-full bg-[#030712] hover:bg-[#030712]/90 cursor-pointer text-primary-[#030712] font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 font-(family-name:--font-plus-jakarta-sans)">
+                  Get Started
+                </button>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
