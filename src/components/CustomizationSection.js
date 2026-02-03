@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CustomizationSection() {
   return (
     <section className="w-full bg-[#2665d6] py-16 sm:py-20 md:py-24">
@@ -32,9 +34,11 @@ export default function CustomizationSection() {
 
             {/* CTA Button */}
             <div className="pt-4">
-              <button className="bg-lime-500 text-lg cursor-pointer sm:text-lg text-[#030712] hover:bg-lime-600 font-semibold py-5 px-16 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 font-(family-name:--font-plus-jakarta-sans)">
+              <Link href="/generate">
+              <button className="bg-lime-500 text-lg cursor-pointer sm:text-lg text-[#030712] hover:bg-lime-400 font-semibold py-5 px-16 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 font-(family-name:--font-plus-jakarta-sans)">
                 Start Customizing
               </button>
+              </Link>
             </div>
           </div>
         </div>

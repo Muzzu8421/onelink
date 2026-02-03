@@ -50,6 +50,7 @@ export async function POST(request) {
     handle: data.handle,
     links: data.links,
     profileImage: data.profileImage,
+    desc: data.desc,
   });
 
   return Response.json({

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRive, Layout, Fit, Alignment } from "@rive-app/react-canvas";
+import Link from "next/link";
 
 export default function ShareSection() {
   const { RiveComponent } = useRive({
@@ -35,9 +36,11 @@ export default function ShareSection() {
 
             {/* CTA Button */}
             <div className="pt-4">
+              <Link href="/generate">
               <button className="bg-[#d9a6d9] text-lg cursor-pointer sm:text-lg text-[#030712] hover:bg-[#d99dd9] font-semibold py-5 px-16 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 font-(family-name:--font-plus-jakarta-sans)">
                 Start Sharing
               </button>
+              </Link>
             </div>
           </div>
 

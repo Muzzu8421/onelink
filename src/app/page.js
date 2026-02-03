@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
 import CustomizationSection from "@/components/CustomizationSection";
 import ShareSection from "@/components/ShareSection";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const [text, settext] = useState("");
+  const router = useRouter();
+
   return (
     <>
       <main className="bg-lime-500 min-h-screen pt-29 sm:pt-20 md:pt-24">
@@ -27,10 +33,11 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <input
                   type="text"
+                  onChange={(e) => settext(e.target.value)}
                   placeholder="yourname"
                   className="w-full sm:flex-1 px-4 py-3 rounded-full border border-[#030712]/30 bg-[#F5F7F2] text-[#030712] placeholder:text-[#030712]/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                 />
-                <button className="bg-[#074ed3] hover:bg-[#030712]/90 cursor-pointer text-[#F5F7F2] font-semibold py-3 sm:px-6 rounded-full transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap font-(family-name:--font-plus-jakarta-sans)">
+                <button onClick={() => router.push(`/generate?handle=${text}`)} className="bg-[#074ed3] hover:bg-[#074ed3]/90 cursor-pointer text-[#F5F7F2] font-semibold py-3 sm:px-6 rounded-full transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 whitespace-nowrap font-(family-name:--font-plus-jakarta-sans)">
                   Get Started Free
                 </button>
               </div>
