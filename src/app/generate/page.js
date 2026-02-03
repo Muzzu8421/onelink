@@ -6,19 +6,29 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 export default function GeneratePage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
-    handle: searchParams.get("handle") || "",
+    handle: "",
     links: [{ url: "", title: "" }],
     profileImage: null,
     desc: "",
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const handle = params.get("handle") || "";
+
+    setFormData((prev) => ({
+      ...prev,
+      handle,
+    }));
+  }, []);
 
   const addLink = () => {
     setFormData({
@@ -110,7 +120,9 @@ export default function GeneratePage() {
             {/* Error Message */}
             {error && (
               <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
-                <p className="text-red-500 text-xs sm:text-sm font-medium">{error}</p>
+                <p className="text-red-500 text-xs sm:text-sm font-medium">
+                  {error}
+                </p>
               </div>
             )}
 
