@@ -24,12 +24,12 @@ export default function CustomizationSection() {
 
             {/* Heading */}
             <h2 className="text-3xl text-center sm:text-left sm:text-4xl md:text-5xl lg:text-6xl font-bold text-lime-500 font-(family-name:--font-plus-jakarta-sans) leading-tight">
-              Create & Customize Your Link Tree
+              Create & Customize Your OneLink
             </h2>
             
             {/* Description */}
             <p className="text-base text-center sm:text-left sm:text-lg text-white/90 leading-relaxed">
-              Design your perfect link page with our intuitive customization tools. Choose from stunning themes, customize colors, fonts, and layouts to match your brand identity.
+              Design your perfect OneLink page with our intuitive customization tools. Choose from stunning themes, customize colors, fonts, and layouts to match your brand identity.
             </p>
 
             {/* CTA Button */}

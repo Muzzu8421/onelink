@@ -24,12 +24,12 @@ export default function ShareSection() {
           <div className="flex flex-col items-center sm:items-start space-y-4 sm:space-y-6">
             {/* Heading */}
             <h2 className="text-4xl sm:text-4xl text-center sm:text-left md:text-5xl lg:text-6xl font-bold text-[#d9a6d9] font-(family-name:--font-plus-jakarta-sans) leading-tight">
-              Share Your Linktree Anywhere You Like!
+              Share Your OneLink Anywhere You Like!
             </h2>
 
             {/* Description */}
             <p className="text-lg text-white sm:text-lg text-center sm:text-left leading-relaxed">
-              One link for everything. Share your Linktree URL across all your
+              One link for everything. Share your OneLink URL across all your
               social media platforms, email signatures, business cards, and
               anywhere else you connect with your audience.
             </p>
